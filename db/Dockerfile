@@ -5,6 +5,7 @@ COPY ./users.csv /users.csv
 COPY ./setup.sql /docker-entrypoint-initdb.d/setup.sql
 
 COPY ./migrate.sql /migrate.sql
+
 COPY ./seed.sql /seed.sql
 
 ENTRYPOINT ["/entrypoint.sh"]
