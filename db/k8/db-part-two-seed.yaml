@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: part-two-seed
+spec:
+  template:
+    spec:
+      containers:
+      - name: mysql-container
+        image: nyuappsec/assign3-db:v0
+        ports:
+          - containerPort: 8000
+        env:
+          - name: MYSQL_DB
+            value: GiftcardSiteDB
+            
+          - name: MYSQL_HOST
+            value: mysql-service
+            
+          - name: ALLOWED_HOSTS
+            value: "*,"
+            
+        command: ["mysqld",  "/seed.sql"]
+      restartPolicy: Never
+  backoffLimit: 4
