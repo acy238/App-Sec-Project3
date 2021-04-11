@@ -1,0 +1,14 @@
+The database migration and seeding were split into two separate jobs; hence, two separate yaml files were created.
+  1. db-part-two-migrate.yaml for migrations
+  2. db-part-two-seed.yaml for seeding 
+  
+The sql code used in both yaml files were part of the "setup.sql" file.
+However, the migrations and seeding actions were split into two separate sql files:
+  1. migrate.sql for migrations
+  2. seed.sql for seeding
+Note that both sql files were included in the "db/Dockerfile" to be copied over with the "COPY" command. 
+These two sql files are now available for their respective yaml files.
+
+The job of migration and seeding can now be performed from the command line with these commands:
+-> kubectl apply -f db/k8/db-part-two-migrate.yaml
+-> kubectl apply -f db/k8/db-part-two-seed.yaml
