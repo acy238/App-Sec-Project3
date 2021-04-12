@@ -1,0 +1,17 @@
+(Part 3.1) We removed the collection of passwords under the "register_view" function within the "views.py" file.
+Because it is best practice to remove unwanted/unsafe monitoring of sensitive data.
+Hence, lines 47-50 of the original "views.py" file were commented out. 
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+(Part 3.2) We added prometheus counter to track all the 404 response messages returned within "views.py" through a counter.
+The counter stores the data from above into the variable name: "database_error_return_404". 
+The following counter increment is added before every 404 HTTP response returned in the original "views.py":
+-> graphs["database_error_return_404"].inc()
+This code was added before these 6 parts of "views.py", line numbers of the original code listed below:
+  1. Right before line 101 
+  2. Right before line 106 
+  3. Right before line 151 
+  4. Right before line 156
+  5. Right before line 168 
+  6. Right before line 253
