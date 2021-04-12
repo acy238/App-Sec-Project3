@@ -1,6 +1,6 @@
 (Part 3.1) We removed the collection of passwords under the "register_view" function within the "views.py" file.
 Because it is best practice to remove unwanted/unsafe monitoring of sensitive data.
-Hence, lines 47-50 of the original "views.py" file were commented out. 
+Hence, lines 47-50 (inclusive) of the original "views.py" file were commented out. 
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
