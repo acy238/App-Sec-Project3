@@ -15,6 +15,11 @@ spec:
       containers:
       - name: prometheus-cont
         image: prom/prometheus
+        env:
+          - name: MYSQL_DB
+            value: GiftcardSiteDB
+          - name: MYSQL_HOST
+            value: mysql-service
         volumeMounts:
         - name: config-volume
           mountPath: /etc/prometheus/prometheus.yaml
