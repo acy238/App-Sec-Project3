@@ -7,8 +7,13 @@ However, the migrations and seeding actions were split into two separate sql fil
   1. migrate.sql for migrations
   2. seed.sql for seeding
 Note that both sql files were included in the "db/Dockerfile" to be copied over with the "COPY" command. 
-These two sql files are now available for their respective yaml files.
+These two sql files are now available to be called by their respective yaml files because it is now 'locally' available to it.
 
 The job of migration and seeding can now be performed from the command line with these commands:
 -> kubectl apply -f db/k8/db-part-two-migrate.yaml
 -> kubectl apply -f db/k8/db-part-two-seed.yaml
+
+Please note that within each of the yaml files from above: db-part-two-migrate.yaml and db-part-two-seed.yaml, respectively, are these commands:
+-> command: ["mysqld",  "/migrate.sql"]
+-> command: ["mysqld",  "/seed.sql"]
+If specific migrations are needed, then developers can edit 'migrate.sql' directly.
