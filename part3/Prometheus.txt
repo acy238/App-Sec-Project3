@@ -18,8 +18,11 @@ This code was added before these 6 parts of "views.py", line numbers of the orig
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-(Part 3.3) Within "prometheus.yaml" - we defined the configuration for the job's target port to: "proxy-service:8080"
+(Part 3.3) Within "prometheus.yaml" - we defined the configuration for the prometheus job's target to: "proxy-service:8080"
 To configure and build the prometheus container, we follow these commands in terminal: 
 -> kubectl create configmap prometheus-config --from-file=prometheus.yaml
 -> docker build -t prom/prometheus . 
 -> kubectl apply -f prometheus/k8
+
+Please note that lines 6-22 of "prometheus.yaml" were part of trial and error from tutorials to familiarize myself with the concept. 
+Within scrape_configs, the job_name titled 'four-zero-four-response' is the prometheus job for part 3.
