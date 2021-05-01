@@ -46,6 +46,13 @@ spec:
                 secretKeyRef:
                     name: admin-login-secrets
                     key: password
+                    
+            - name: ADMIN_KEY
+              valueFrom:
+                secretKeyRef:
+                    name: admin-login-secrets
+                    key: secretkey
+              
 
           volumeMounts:
             - name: mysql-volume-mount
