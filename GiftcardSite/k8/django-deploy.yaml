@@ -47,7 +47,7 @@ spec:
                     name: admin-login-secrets
                     key: password
                     
-            - name: ADMIN_KEY
+            - name: SECRET_KEY
               valueFrom:
                 secretKeyRef:
                     name: admin-login-secrets
