@@ -17,3 +17,8 @@ Please note that within each of the yaml files from above: db-part-two-migrate.y
 -> command: ["mysqld",  "/migrate.sql"]
 -> command: ["mysqld",  "/seed.sql"]
 If specific migrations are needed, then developers can edit 'migrate.sql' directly.
+
+Edits: For best practices to do Django migrations, we can use the Django image and call the migrate command like below:
+-> python manage.py makemigrations nyuappsec/assign3-db:v0
+-> python manage.py makemigrations
+-> python manage.py migrate
